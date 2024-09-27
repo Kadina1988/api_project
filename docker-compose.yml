@@ -4,6 +4,8 @@ services:
     environment:
       POSTGRES_USER: owner
       POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"  
     volumes:
         - postgres:/var/lib/postgresql/data  
   web:
