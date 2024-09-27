@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: owner
+      POSTGRES_PASSWORD: postgres
+    volumes:
+        - postgres:/var/lib/postgresql/data  
+  web:
+    build: 
+      context: .
+    command: bundle exec rails s -b 0.0.0.0 
+    volumes:
+      - .:/Rails-Docker 
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres 
+volumes:
+  postgres:      
