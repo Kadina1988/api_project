@@ -4,12 +4,14 @@ default: &default
   username: owner
   password: postgres
   database: postgresql
-  host: postgresql
+  host: postgres
   post: 5432
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
+  database: my-app_development
 
 test:
   <<: *default
+  database: my-app_test
