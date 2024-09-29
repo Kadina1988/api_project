@@ -7,14 +7,14 @@ services:
     ports:
       - "5432:5432"  
     volumes:
-      -  /root/develop/api_project/tmp/db:/var/lib/postgresql/data
+      -  /root/projects/api_project/tmp/db:/var/lib/postgresql/data
       
   web:
     build: 
       context: .
     command: bundle exec rails s -b 0.0.0.0 
     volumes:
-      - /root/develop/api_project:/app
+      - /root/projects/api_project:/app
     working_dir:  /app  
     ports:
       - "3000:3000"
