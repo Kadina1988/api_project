@@ -29,4 +29,20 @@ RSpec.describe Article, type: :model do
       expect(article).not_to be_valid
     end
   end
+
+  describe ".recent" do 
+    it 'should return the correct list' do 
+      article1 = create(:article)
+      article2 = create(:article)
+      expect(described_class.recent).to eq(
+        [article2, article1]
+      )
+
+      article1.update created_at: Time.now 
+
+      expect(described_class.recent).to eq(
+        [article1, article2]
+      )
+    end
+  end
 end
