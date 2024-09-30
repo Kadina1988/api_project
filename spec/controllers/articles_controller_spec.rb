@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ArticlesController, type: :controller do
   describe "#index" do 
     subject { get :index }
-
+    
     it "should return response :ok" do 
       subject
       expect(response).to have_http_status(:ok)
